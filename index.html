@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Create and manage eFootball tournaments and league competitions with automatic fixture generation">
+    <title>eFootball Tournament & League Manager</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <span class="brand-icon">⚽</span>
+                <span class="brand-text">eFootball Manager</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html" class="nav-link active">Home</a></li>
+                <li><a href="tournament.html" class="nav-link">Tournament</a></li>
+                <li><a href="league.html" class="nav-link">League</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-bg"></div>
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">Welcome to eFootball Manager</h1>
+                <p class="hero-subtitle">Create tournaments and league competitions with automatic fixture generation
+                </p>
+                <div class="hero-stats">
+                    <div class="stat-card">
+                        <div class="stat-icon">🏆</div>
+                        <div class="stat-value" id="tournament-count">0</div>
+                        <div class="stat-label">Tournaments</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">⚡</div>
+                        <div class="stat-value" id="league-count">0</div>
+                        <div class="stat-label">Leagues</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">👥</div>
+                        <div class="stat-value" id="team-count">0</div>
+                        <div class="stat-label">Teams</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            <!-- Setup Section -->
+            <section class="setup-section">
+                <div class="section-header">
+                    <h2 class="section-title">Create New Competition</h2>
+                    <p class="section-description">Enter teams and choose your competition format</p>
+                </div>
+
+                <div class="setup-grid">
+                    <!-- Team Input Card -->
+                    <div class="card team-input-card">
+                        <div class="card-header">
+                            <h3 class="card-title">Add Teams</h3>
+                            <span class="team-counter" id="team-counter">0 teams</span>
+                        </div>
+                        <div class="card-body">
+                            <div class="input-group">
+                                <input type="text" id="team-name-input" class="input-field"
+                                    placeholder="Enter team name..." autocomplete="off">
+                                <button id="add-team-btn" class="btn btn-primary">
+                                    <span>Add Team</span>
+                                    <span class="btn-icon">+</span>
+                                </button>
+                            </div>
+
+                            <div class="teams-list" id="teams-list">
+                                <p class="empty-state">No teams added yet. Start by adding your first team!</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Competition Type Card -->
+                    <div class="card competition-card">
+                        <div class="card-header">
+                            <h3 class="card-title">Competition Format</h3>
+                        </div>
+                        <div class="card-body">
+                            <div class="format-options">
+                                <div class="format-option" id="tournament-option">
+                                    <div class="format-icon">🏆</div>
+                                    <h4 class="format-title">Tournament</h4>
+                                    <p class="format-description">Knockout bracket format with elimination rounds</p>
+                                    <div class="format-badge">Best for 4, 8, 16 teams</div>
+                                </div>
+
+                                <div class="format-option" id="league-option">
+                                    <div class="format-icon">⚽</div>
+                                    <h4 class="format-title">League</h4>
+                                    <p class="format-description">Round-robin format like English Premier League</p>
+                                    <div class="format-badge">Any number of teams</div>
+                                </div>
+                            </div>
+
+                            <div class="action-buttons">
+                                <button id="create-tournament-btn" class="btn btn-gradient" disabled>
+                                    <span>Create Tournament</span>
+                                    <span class="btn-arrow">→</span>
+                                </button>
+                                <button id="create-league-btn" class="btn btn-gradient" disabled>
+                                    <span>Create League</span>
+                                    <span class="btn-arrow">→</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>eFootball Tournament & League Manager © 2026</p>
+        </div>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+
+</html>

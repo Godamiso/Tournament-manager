@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Manage your eFootball knockout tournament brackets and results">
+    <title>Tournament - eFootball Manager</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="tournament.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <span class="brand-icon">⚽</span>
+                <span class="brand-text">eFootball Manager</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="tournament.html" class="nav-link active">Tournament</a></li>
+                <li><a href="league.html" class="nav-link">League</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            <!-- Tournament Header -->
+            <section class="tournament-header">
+                <h1 class="tournament-title" id="tournament-title">🏆 Tournament Bracket</h1>
+                <div class="tournament-actions">
+                    <button class="btn btn-secondary" onclick="window.location.href='index.html'">← Back to
+                        Home</button>
+                    <button class="btn btn-danger" onclick="clearTournament()">Clear Tournament</button>
+                </div>
+            </section>
+
+            <!-- No Tournament State -->
+            <div id="no-tournament-state" class="empty-tournament">
+                <div class="empty-icon">🏆</div>
+                <h2>No Tournament Created</h2>
+                <p>Create a tournament from the home page to get started</p>
+                <a href="index.html" class="btn btn-gradient">Go to Home</a>
+            </div>
+
+            <!-- Tournament Bracket -->
+            <div id="tournament-bracket" class="tournament-bracket" style="display: none;">
+                <!-- Bracket will be generated here -->
+            </div>
+
+            <!-- Match Update Modal -->
+            <div id="match-modal" class="modal">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h3>Update Match Result</h3>
+                        <button class="modal-close" onclick="closeMatchModal()">×</button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="match-update-form">
+                            <div class="team-score">
+                                <label id="team1-label">Team 1</label>
+                                <input type="number" id="team1-score" min="0" class="score-input">
+                            </div>
+                            <div class="vs-divider">VS</div>
+                            <div class="team-score">
+                                <label id="team2-label">Team 2</label>
+                                <input type="number" id="team2-score" min="0" class="score-input">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-secondary" onclick="closeMatchModal()">Cancel</button>
+                        <button class="btn btn-gradient" onclick="saveMatchResult()">Save Result</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>eFootball Tournament & League Manager © 2026</p>
+        </div>
+    </footer>
+
+    <script src="tournament.js"></script>
+</body>
+
+</html>

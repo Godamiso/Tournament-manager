@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Manage your eFootball league table and fixtures in English Premier League format">
+    <title>League - eFootball Manager</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="league.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <span class="brand-icon">⚽</span>
+                <span class="brand-text">eFootball Manager</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="tournament.html" class="nav-link">Tournament</a></li>
+                <li><a href="league.html" class="nav-link active">League</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            <!-- League Header -->
+            <section class="league-header">
+                <h1 class="league-title" id="league-title">⚽ League Table</h1>
+                <div class="league-actions">
+                    <button class="btn btn-secondary" onclick="window.location.href='index.html'">← Back to
+                        Home</button>
+                    <button class="btn btn-danger" onclick="clearLeague()">Clear League</button>
+                </div>
+            </section>
+
+            <!-- No League State -->
+            <div id="no-league-state" class="empty-league">
+                <div class="empty-icon">⚽</div>
+                <h2>No League Created</h2>
+                <p>Create a league from the home page to get started</p>
+                <a href="index.html" class="btn btn-gradient">Go to Home</a>
+            </div>
+
+            <!-- League Content -->
+            <div id="league-content" style="display: none;">
+                <!-- League Table -->
+                <section class="table-section">
+                    <div class="section-header">
+                        <h2 class="section-title">Standings</h2>
+                    </div>
+                    <div class="table-container">
+                        <table class="league-table">
+                            <thead>
+                                <tr>
+                                    <th class="pos-col">Pos</th>
+                                    <th class="team-col">Team</th>
+                                    <th>P</th>
+                                    <th>W</th>
+                                    <th>D</th>
+                                    <th>L</th>
+                                    <th>GF</th>
+                                    <th>GA</th>
+                                    <th>GD</th>
+                                    <th class="pts-col">Pts</th>
+                                </tr>
+                            </thead>
+                            <tbody id="standings-body">
+                                <!-- Standings will be rendered here -->
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+
+                <!-- Fixtures & Results -->
+                <section class="fixtures-section">
+                    <div class="section-header">
+                        <h2 class="section-title">Fixtures & Results</h2>
+                        <div class="filter-buttons">
+                            <button class="filter-btn active" onclick="filterFixtures('all')">All</button>
+                            <button class="filter-btn" onclick="filterFixtures('upcoming')">Upcoming</button>
+                            <button class="filter-btn" onclick="filterFixtures('played')">Played</button>
+                        </div>
+                    </div>
+                    <div class="fixtures-container" id="fixtures-container">
+                        <!-- Fixtures will be rendered here -->
+                    </div>
+                </section>
+            </div>
+
+            <!-- Fixture Update Modal -->
+            <div id="fixture-modal" class="modal">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h3>Update Match Result</h3>
+                        <button class="modal-close" onclick="closeFixtureModal()">×</button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="match-update-form">
+                            <div class="team-score-input">
+                                <label id="home-team-label">Home Team</label>
+                                <input type="number" id="home-score" min="0" class="score-input">
+                            </div>
+                            <div class="vs-divider">VS</div>
+                            <div class="team-score-input">
+                                <label id="away-team-label">Away Team</label>
+                                <input type="number" id="away-score" min="0" class="score-input">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-secondary" onclick="closeFixtureModal()">Cancel</button>
+                        <button class="btn btn-gradient" onclick="saveFixtureResult()">Save Result</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>eFootball Tournament & League Manager © 2026</p>
+        </div>
+    </footer>
+
+    <script src="league.js"></script>
+</body>
+
+</html>
